@@ -74,8 +74,8 @@
 const express = require("express");
 const cors = require("cors");
 
-const translateRoutes = require("./routes/translateRoutes");
-
+const translateRoutes = require("./routes/translateRoute.js");
+const translateController = require("./controllers/translateController.js");  
 const app = express();
 const PORT = 5000;
 

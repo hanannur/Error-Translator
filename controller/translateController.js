@@ -8,9 +8,9 @@ const translateError = (req, res) => {
   }
 
   res.json({
-    meaning: "Temporary meaning (backend connected)",
-    causes: ["Temporary cause"],
-    solution: "Temporary solution",
+    meaning: "Backend connected successfully",
+    causes: ["Test cause"],
+    solution: "Test solution",
   });
 };
 
