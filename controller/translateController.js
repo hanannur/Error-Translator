@@ -1,3 +1,4 @@
+const errorRules= require("../data/errorRule");
 const translateError = (req, res) => {
   const { errorMessage } = req.body;
 
@@ -7,11 +8,17 @@ const translateError = (req, res) => {
     });
   }
 
+  const message = errorMessage.toLowerCase(); 
+  const matchedRule=errorRules.find((rule) =>
+    rule.keywords.some((keyword) => message.includes(keyword))
+  );  
+
   res.json({
-    meaning: "Backend connected successfully",
-    causes: ["Test cause"],
-    solution: "Test solution",
-  });
+    meaning:matchedRule.meaning,
+    causes:matchedRule.causes,
+    solution:matchedRule.solution,  
+  })
+
 };
 
 module.exports = { translateError };
